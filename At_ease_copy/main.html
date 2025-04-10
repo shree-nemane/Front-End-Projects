@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            overflow-x: hidden;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header{
+            position: sticky;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            top: 0;
+            right: 0;
+            margin-bottom: 0;
+            background-color: #ffffff;
+            z-index: 100;
+        }
+
+        .header_img{
+            display: flex;
+            height: 50%;
+
+        }
+
+        .header_img img:first-child{
+            width: 70px;
+            height: 70px;
+        }
+
+        .header_img img:last-child{
+            width: 100%;
+            height: 50px;
+            padding-top: 10px;
+        }
+
+        .header_information{
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            margin-right: 80px;
+        }
+
+        .contact, .email, .addresses{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 18px;
+            gap: 5px;
+        }
+
+        .contact img, .email img, .addresses img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .contact_info, .email_info, .addresses_info{
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .contact_info span1, .email_info span1, .addresses_info span1{
+            font-size: 11px;
+            color: #686868;
+        }
+
+        .nav_bar{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 0px;
+            padding: 10px;
+            background-color: #e0e0e0;
+        }
+
+        .nav_links {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+            margin-left: 35px;
+            margin-top: 0px;
+            flex-grow: 1; /* Allow nav_links to grow and take available space */
+        }
+
+        .nav_bar button{
+            background-color: #38b79c;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-left: auto;
+            border-radius: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            padding: 10px;
+            text-align: center;
+            
+        }
+
+        .header_img{
+            margin-left: 30px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+        
+        .logo, .wordmark{
+            width: 100px;
+            height: 100px;
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            
+            position: relative;    
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%; 
+            transform: translateY(-50%); 
+            font-size: 1rem;
+            color: white; 
+            background: rgba(0, 0, 0, 0.5); 
+            border: none; 
+            padding: 10px 15px; 
+            cursor: pointer; 
+            border-radius: 50%;     
+                    
+        }
+        
+        #prevBtn {
+            left: 20px;     
+        }
+            
+        #nextBtn {
+            right: 20px;    
+        }
+
+        .blue-btn {
+            background-color: #38b79c;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .intro_img{ 
+            display: flex;
+            margin-right: auto;
+            justify-content: center;
+        }
+
+        .intro_img img{
+            width: 200px;
+            height: 300px;
+            margin-right: 0;
+        }
+
+        .our_information{
+            padding-bottom: 35px;
+            background-image: url(assets/Backdrop_2.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .intro_sec1{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 50px;
+            margin-left: 50px;
+            margin-right: 50px;
+            justify-self: center;
+            margin-bottom: 0;
+        }
+
+        .intro_sec1 img{
+            width: 200px;
+            height: 300px;
+        }
+
+        .intro_text{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 50%;
+        }
+
+        .intro_text span{
+            font-size: 20px;
+            color: #38b79c;
+            float: right;
+        } 
+
+        .intro_text span1{
+            font-size: 36px;
+            font-weight: bold;
+            float: right;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            width: 45%;
+        }
+        
+        .intro_text pre{
+            font-size: 36px;
+            font-weight: bold;
+            float: right;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .intro_text p{
+            font-size: 14px;
+            color: #333;
+            float: right;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .intro_text button{
+            background-color: #38b79c;
+            color: white;
+            font-size: 16px;
+            border: none;
+            padding: 10px;
+            border-radius: 20px;
+            width: 150px;
+        }
+
+        .intro_sec2{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 50px;
+            margin-left: 50px;
+            margin-right: 50px;
+            justify-self: center;
+        }
+
+        #t1{
+            font-size: 20px;
+            color: #38b79c;
+            text-align: center;
+        }
+
+        #t2{
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+
+        .cards{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        #card1, #card2, #card3, #card4, #card5{
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #000000;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            text-align: center;
+            width: 130px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
+        }
+
+        #card1 div, #card2 div, #card3 div, #card4 div, #card5 div{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #38b79c;
+            transition: background-color 0.3s ease; /* Add transition */
+        }
+
+        #card1 img, #card2 img, #card3 img, #card4 img, #card5 img{
+            padding-top: 15px;
+            width: 40px;
+            height: 40px;
+        
+        }
+
+        #card1 span, #card2 span, #card3 span, #card4 span, #card5 span{
+            font-weight: normal;
+            font-size: 17px;
+            width: 80%;
+        }
+
+
+        #card1:hover, #card2:hover, #card3:hover, #card4:hover, #card5:hover{
+            background-color: #38b79c;
+            color: white;
+        }
+
+        #card1:hover div, #card2:hover div, #card3:hover div, #card4:hover div, #card5:hover div{
+            background-color: white;
+        }
+
+        .Our_Services{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 50px;
+            padding: 40px 0;
+            justify-self: center;
+            text-align: center;
+            width: 100vw;
+        }
+
+        .Our_Services span1{
+            font-size: 20px;
+            color: #38b79c;
+        }
+
+        .Our_Services span{
+            font-size: 40px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .Our_Services p{
+            font-size: 14px;
+            color: #333;
+            width: 70%;
+            transform: translate(22%, 0%);
+
+        }
+
+        .services_img_card{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .card1, .card2, .card3{
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #000000;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 55px;
+            text-align: center;
+            width: 130px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease; /* Add transition */
+        }
+
+        .card1 img, .card2 img, .card3 img{
+            width: 50px;
+            height: 50px;
+        }
+
+        .card1:hover, .card2:hover, .card3:hover{
+            background-color: #38b79c;
+            color: white;
+        }
+
+        .Our_Services #queries{
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+
+        .How_it_Works{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 700px;
+            width: 100%;
+            gap: 10px;
+            margin-top: 50px;
+            padding-top: 50px;
+            justify-self: center;
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ababab;
+            background-image: url(./assets/backdrop\ 1\ flow.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #t1_how{
+            display: flex;
+            flex-direction: column;
+           
+        }
+
+        .How_it_Works span1{
+            font-size: 20px;
+            color: #38b79c;
+        }
+
+        .How_it_Works span2{
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #t2_how{
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            justify-content: space-between;
+            width: 67%;
+            transform: translate(20%, 0%);
+            gap: 10px;
+            background-color: #38b79c;
+            padding: 10px;
+            margin-left: 30px;
+            border-radius: 10px;
+            margin-bottom: 150px;
+        }
+
+        .How_it_Works span3{
+            font-size: 25px;
+            color: #ffffff;
+            padding: 15px;
+            padding-left: 30px;
+            font-weight: bold;
+        }
+
+        .How_it_Works button{
+            background-color: #ffffff;
+            font-size: 15px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-right: 10px;
+            color: #38b79c;
+            border-radius: 30px;
+            border: none;
+            padding-left: 20px ;
+            padding-right: 20px;
+            
+        }
+
+        
+        #carousel-container-2 {
+        max-width: 600px;
+        margin: 50px auto;
+        position: relative;
+        overflow: hidden;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #review-slide-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        }
+
+        .review {
+        min-width: 100%;
+        box-sizing: border-box;
+        }
+
+        .review-stars img {
+        height: 20px;
+        }
+
+        .review span {
+        color: #777;
+        font-size: 0.9rem;
+        }
+
+        .review p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 15px 0;
+        }
+
+        .review h1 {
+        font-size: 1.1rem;
+        color: #333;
+        }
+
+        #review-cc-1 span,
+        #review-cc-2 span,
+        #review-cc-3 span {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        display: inline-block;
+        margin-bottom: 10px;
+        }
+
+        .nav-button-2 {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: bold;
+        z-index: 1;
+        }
+
+        #prevBtn-2 {
+        left: 10px;
+        }
+
+        #nextBtn-2 {
+        right: 10px;
+        }
+
+
+
+.review{
+      font-family: 'Segoe UI', sans-serif;
+      
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+        .carousel-container2 {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      overflow: hidden;
+      padding: 40px 20px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .review-card {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .review-avatar {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .review-stars {
+      margin-bottom: 8px;
+      color: #f5c518;
+    }
+
+    .review-time {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .review-text {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .review-author {
+      font-weight: bold;
+      color: #111;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #38b79c;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+     
+    }
+
+    .prev-btn {
+      left: 1px;
+    }
+
+    .next-btn {
+      right: 1px;
+    }
+
+    @media (max-width: 500px) {
+      .carousel-btn {
+        padding: 8px 12px;
+        font-size: 16px;
+      }
+    }
+
+
+
+
+
+
+        .location{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        #Washington_County button{
+            background-color: #ced4d3;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        #Washington_County button:hover{
+            background-color: #38b79c;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        #Mobile_County button{
+            background-color: #ced4d3;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        #Mobile_County button:hover{
+            background-color: #38b79c;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        #Choctaw_County button{
+            background-color: #ced4d3;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        #Choctaw_County button:hover{
+            background-color: #38b79c;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        #Clarke_County button{
+            background-color: #ced4d3;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        #Clarke_County button:hover{
+            background-color: #38b79c;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .google_map{
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .google_map iframe{
+            height: 300px;
+            width: 300px;
+        }
+
+        .location span1{
+            font-size: 20px;
+            color: #38b79c;
+        }
+
+        .location h1{
+            margin-top: 0;
+        }
+
+        .google_map wc, .google_map mc, .google_map ccounty, .google_map ccy{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .google_map h3{
+            color: #38b79c; 
+        }
+    
+        .google_map ul{
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+        }
+
+        .free{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            background-image: url(./assets/contact\ page.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            gap: 20px;
+            padding: 100px;
+            /* padding-top: 80px; */
+        }
+
+        #text{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .free span1{
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .free span1, .free span{
+            margin-left: 100px;
+            color: #ffffff;
+        }
+
+        .quote-form{
+            display: flex;
+            flex-direction: column;
+            margin-left: 100px;
+            gap: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .input-group{
+            display: flex;
+            gap: 20px;
+            
+        }
+
+        .quote-form input{
+            width: 300px;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #a0e4d6;
+            color: #ababab;
+            border: none;
+        }
+
+
+        .submit{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .submit textarea{
+            border-radius: 10px;
+            background-color: #a0e4d6;
+            border: none;
+            font-size: 16px;
+            color: #ababab;
+        }
+
+        .submit button{
+            border-radius: 10px;
+            background-color: #a0e4d6;
+            width: 180px;
+            height: 40px;
+            color: #38b79c;
+            border: none;
+            font-size: 18px;
+            background-color: #ffffff;
+        }
+
+        .footer{
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 20px 0;
+        }
+
+        .footer_img {
+            display: flex;
+            width: 100%;
+        }
+
+        .footer_img img:first-child{
+            width: 100px;
+            height: 100px;
+            margin-left: 60px;
+        }
+
+        .footer_img img:last-child{
+            margin-top: 35px;
+            width: 110px;
+            height: 35px;
+        }
+
+        .upper_sec{
+            display: flex;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .quick_link{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+        }
+
+        .quick_link span1, .services span1, .footer_contact span1{
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .services{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+        }
+
+        .footer_contact{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+        }
+
+        .hori_nav{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hori_nav img{
+            width: 25px;
+            height: 25px;
+            margin-top: 5px;
+        }
+
+        .contact_info_, .Email_Us, .Visit_Us{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .contact_info_ span, .Email_Us span, .Visit_Us span{
+            font-size: 12px;
+            color: #969696;
+        }
+
+        #ci, #eu, #vu{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .lower_sec{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 150px;
+            color: #969696;
+        }
+
+        .lower_sec a{
+            text-decoration: none;
+            color: #38b79c;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header_img">
+            <img class="logo" src="assets/logo.png" alt="At_ease_logo">
+            <img class="wordmark" src="assets/wordmark.png" alt="At_ease_wordmark">
+        </div>
+
+        <div class="header_information">
+            
+            <article class="contact">
+                <img src="assets/phone.png" alt="phone">
+                
+                <div class="contact_info">
+                    <span1>Call Us Now!!</span1>
+                    <span>123-456-7890</span>
+                </div>
+            </article>
+
+            <article class="email">
+                <img src="assets/email.png" alt="email">
+                
+                <div class="email_info">
+                    <span1>Email Us Now!!</span1>
+                    <span>info@at-ease.com</span>
+                </div>
+            </article>
+
+            <artticle class="addresses">
+                <img src="assets/gps.png" alt="gps">
+                  
+                <div class="addresses_info">
+                    <span1>Visit Us Now!!</span1>
+                    <span>1234 At_ease Lane 12345</span>
+                </div>  
+            </artticle>
+
+        </div>
+    </header>
+
+    <nav class="nav_bar">
+        <div class="nav_links">
+            <a href="#">HOME</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">SERVICES</a>
+            <a href="#">CONTACT US</a>
+        </div>
+        <button>CALL NOW</button>
+    </nav>
+
+    <div class="carousel-container">
+        <div class="carousel-slide" id="carouselSlide">
+            <img src="./assets/carousel 1.png" alt="Slide 1">
+            <img src="./assets/carousel 2.png" alt="Slide 2">
+            <img src="./assets/carousel 3.png" alt="Slide 3">
+            <img src="./assets/carousel 4.png" alt="Slide 4">
+        </div>
+
+        <button class="nav-button blue-btn" id="prevBtn">←</button>
+        <button class="nav-button blue-btn" id="nextBtn">→</button>
+    </div>
+
+    <div class="our_information">
+        <div class="intro_sec1">
+            
+            <div class="intro_img">
+                <img src="assets/intro_img.jpg" alt="intro_img">
+            </div>
+            
+            <div class="intro_text">
+                <span>Our Introduction</span>
+                <span1>Welcome to At Ease Pest Control</span1>
+                    
+                <p>At Ease Pest Control, we are your trusted partner in providing effective, 
+                    eco-friendly pest management solutions. We specialize in eliminating pests safely 
+                    and efficiently, ensuring your home or business remains pest-free. 
+                    Our team of qualified experts is dedicated to delivering fast, reliable, and 
+                    affordable services tailored to meet your unique needs. 
+                    Whether it's preventative treatments or immediate pest control solutions, 
+                    we're here to help you maintain a comfortable and safe environment. 
+                    Trust At Ease Pest Control—where peace of mind comes naturally.
+                </p>
+                <button>KNOW MORE</button>
+            </div>
+        </div>
+        <div class="intro_sec2">
+            <span id="t1">Why you should choose us?</span>
+            <span id="t2">Reason To Choose Us</span>
+            <div class="cards">
+                <div id="card1">
+                    <div><img src="./assets/document.png"></div>
+                    
+                    <span>Qualified Experts</span>
+                </div>
+                <div id="card2">
+                    <div><img src="./assets/calendar.png"></div>
+                    
+                    <span>Service On Schedule</span>
+                </div> 
+                <div id="card3">
+                    <div><img src="./assets/online-shop.png"></div>
+                    
+                    <span>Affordable Prices</span>
+                </div>
+                <div id="card4">
+                    <div><img src="./assets/quality-control.png"></div>
+                    
+                    <span>Reliable Service</span>
+                </div>
+                <div id="card5">
+                    <div><img src="./assets/sale.png"></div>
+                    
+                    <span>Special Offers</span>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <div class="Our_Services">
+        <span1>Our Services</span1>
+        <span>Explore Our Services</span>
+        <p>AtEase Pest Control provides reliable and eco-friendly pest control solutions for homes and businesses. 
+            Our expert team efficiently handles pest infestations, from ants to rodents, using safe and effective methods. 
+            We ensure your space remains pest-free and comfortable, 
+            with a focus on customer satisfaction and long-term prevention.</p>
+        <div class="services_img_card">
+            <div class="card1">
+                <img src="./assets/pest-control.png">
+                <h3>Residential Pest Control</h3>
+            </div>
+            <div class="card2">
+                <img src="./assets/business-and-trade.png">
+                <h3>Commercial Pest Control</h3></div>
+            <div class="card3">
+                <img src="./assets/termite.png">
+                <h3>Termite Control & Prevention</h3></div>
+        </div>    
+        <div id="queries">
+            Don't hesitate contact us for help and service. contact now
+        </div>
+    </div>
+
+    <div class="How_it_Works">
+        <div id="t1_how">
+        <span1>How it Works</span1>
+        <span2>Simply book online and pay on the day</span2>
+        </div>
+        <div id="t2_how">
+            <span3>Get started with At Ease Pest Control today</span3>
+            <button>BOOK NOW</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="review">
+        <div class="carousel-container2" id="review-carousel">
+        <div class="carousel-track" id="carousel-track">
+    
+          <div class="review-card">
+            <div class="review-avatar">😄</div>
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <div class="review-time">2 months ago</div>
+            <p class="review-text">Absolutely amazing! Fast scheduling and very professional team. I’ll definitely recommend them to others!</p>
+            <h3 class="review-author">Larry Hubbard</h3>
+          </div>
+    
+          <div class="review-card">
+            <div class="review-avatar">😊</div>
+            <div class="review-stars">⭐⭐⭐⭐</div>
+            <div class="review-time">1 month ago</div>
+            <p class="review-text">Really helpful staff. They explained the report clearly and gave great advice. A+ service.</p>
+            <h3 class="review-author">Sandra White</h3>
+          </div>
+    
+          <div class="review-card">
+            <div class="review-avatar">🙌</div>
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <div class="review-time">3 weeks ago</div>
+            <p class="review-text">Super easy to work with and very informative throughout. Loved the experience!</p>
+            <h3 class="review-author">David Lee</h3>
+          </div>
+    
+        </div>
+    
+        <button class="carousel-btn prev-btn" id="prevReviewBtn">&#10094;</button>
+        <button class="carousel-btn next-btn" id="nextReviewBtn">&#10095;</button>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+    <div class="location">
+        <span1>Location</span1>
+        <h1>Locations We Service</h1>
+        <div class="google_map">
+            <div id="Washington_County">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d357645.3625314791!2d-123.44451585324992!3d45.54822544303053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549567c85afdc2e7%3A0x33f5aee1971bf62b!2sWashington%20County%2C%20OR%2C%20USA!5e0!3m2!1sen!2sin!4v1736157317349!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div id="wc">
+                <h2>Washington County</h2>
+                <h3>Areas Served:</h3>
+                    <button>Chatom</button>
+                    <button>Tibbie</button>
+                    <button>Millry</button>
+                    <button>Fruitdale</button>
+                    <button>Deer Park</button>
+                    <button>McIntosh</button>
+                    <button>Wagarville</button>
+                    <button>Leroy</button>
+                    <button>Saint Stephens</button>
+                    <button>Vinegar Bend</button>
+                    <button>Sunflower</button>
+                </div>
+            </div>
+            <div id="Mobile_County">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878636.7956272882!2d-88.83742935984017!3d30.657200756005818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889bb2615243a12b%3A0x4691295225e0453b!2sMobile%20County%2C%20AL%2C%20USA!5e0!3m2!1sen!2sin!4v1736157468560!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div id="mc">
+                <h2>Mobile County</h2>
+                <h3>Areas Served:</h3>
+                    <button>Mobile</button>
+                    <button>Citronelle</button>
+                    <button>Saraland</button>
+                    <button>Semmes</button>
+                    <button>Creola</button>
+                    <button>Axis</button>
+                    <button>LeMoyne</button>
+                    <button>Bucks</button>
+                    <button>Chastang</button>
+                    <button>Mt Vernon</button>
+                    <button>Calvert</button>
+                    <button>Chunchula</button>
+                    <button>Georgetown</button>
+                    <button>Wilmer</button>
+                    <button>Mauvilla</button>
+                    <button>Eight Mile</button>
+                    <button>Chickasaw</button>
+                    <button>Prichard</button>
+                    <button>Tillmans Corner</button>
+                    <button>Theodore</button>
+                </div>
+            </div>
+            <div id="Choctaw_County">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d433077.33297591255!2d-88.53039533182626!3d32.0038253297234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8884e1ab44f9d7b9%3A0x2f39088d7e57ff2f!2sChoctaw%20County%2C%20AL%2C%20USA!5e0!3m2!1sen!2sin!4v1736157503878!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div id="ccounty">
+                <h2>Choctaw County</h2>
+                <h3>Areas Served:</h3>
+                    <button>Gilbertown</button>
+                    <button>Silas</button>
+                    <button>Toxey</button>
+                </div>
+            </div> 
+            <div id="Clarke_County">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d211832.7972623998!2d-83.55393375846394!3d33.9440225970262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f67369c3e5a9a5%3A0x281bbc3db2a4ca0a!2sClarke%20County%2C%20GA%2C%20USA!5e0!3m2!1sen!2sin!4v1736157531921!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div id="ccy">
+                <h2>Clarke County</h2>
+                <h3>Areas Served:</h3>
+                    <button>Jackson</button>
+                    <button>Grove Hill</button>
+                    <button>Thomasville</button>
+                    <button>Coffeeville</button>
+              
+                </div>
+            </div>           
+        </div>
+    </div>
+
+    <div class="free">
+        <div id="text">
+        <span1>Get your free quote!</span1>
+        <span>Complete the form below and we'll get back to you as soon as possible.</span>
+        </div>
+        <form class="quote-form">
+            <div class="input-group">
+                <input type="text" placeholder=" Full name" required>
+                <input type="email" placeholder=" Email" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder=" Phone" required>
+                <input type="text" placeholder=" Subject" required>
+            </div>
+            <div class="submit">
+            <textarea placeholder=" Your message goes here..." rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="upper_sec">
+            <div class="footer_img">
+                <img src="./assets/logo.png">
+                <img src="./assets/wordmark.png">
+            </div>
+            <div class="quick_link">   
+                <span1>Quick Links</span1>
+                <span>Home</span>
+                <span>About Us</span>
+                <span>Services</span>
+                <span>Location</span>
+                <span>Contact Us</span>
+            </div>
+            <div class="services">
+                <span1>Services</span1>
+                <span>Residential Pest Control</span>
+                <span>Commercial Pest Control</span>
+                <span>Termite Control & Prevention</span>
+                <span>Rodent Control</span>
+                <span>Bed Bug Extermination</span>
+                <span>Eco-Friendly Pest Solutions</span>
+            </div>
+            <div class="footer_contact">
+                <span1>Contact Info</span1>
+                <div class="hori_nav">
+
+                    <div class="contact_info_">
+
+                        <div id="phone.img">
+                            <img src="./assets/phone.png">
+                        </div>
+                        <div id="ci">
+                            <span>Call Us Now!</span>
+                            <span5>251-847-3226</span5>
+                        </div>
+
+                    </div>
+
+                    <div class="Email_Us ">
+
+                        <div id="email.img">
+                            <img src="./assets/email.png">
+                        </div>
+                        <div id="eu">
+                            <span>Email Us Now!</span>
+                            <span5>office.aepc@gmail</span5>
+                        </div>
+
+                    </div>
+
+                    <div class="Visit_Us">
+
+                        <div id="gps.img">
+                            <img src="./assets/gps.png">
+                        </div>
+                        <div id="vu">
+                            <span>Visit Us Now!</span>
+                            <span5>4707 Four Points Rd. Deer Park, AL 36529</span5>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lower_sec">
+            <span>© 2021 At Ease Pest Control. All Rights Reserved.</span>
+            <span>Made with ❤️ by <a href="https://nerdtech.in/">nerdtech LLC.</a></span>
+        </div>
+
+    </div>
+
+
+    <script>
+        const slide = document.getElementById('carouselSlide');
+    const images = slide.querySelectorAll('img');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let counter = 0;
+
+    function updateSlidePosition() {
+      const slideWidth = images[0].clientWidth;
+      slide.style.transform = `translateX(${-slideWidth * counter}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      counter = (counter + 1) % images.length;
+      updateSlidePosition();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      counter = (counter - 1 + images.length) % images.length;
+      updateSlidePosition();
+    });
+
+    // Auto-slide every 3 seconds
+    setInterval(() => {
+      counter = (counter + 1) % images.length;
+      updateSlidePosition();
+    }, 3000);
+
+    // Make sure position is updated on resize (for responsiveness)
+    window.addEventListener('resize', updateSlidePosition);
+
+
+    // Carousel 2 Review
+
+    const track = document.getElementById('carousel-track');
+    const prevBtn2 = document.getElementById('prevReviewBtn');
+    const nextBtn2 = document.getElementById('nextReviewBtn');
+    const cards = document.querySelectorAll('.review-card');
+
+    let index = 0;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prevBtn2.addEventListener('click', () => {
+      index = (index - 1 + cards.length) % cards.length;
+      updateCarousel();
+    });
+
+    nextBtn2.addEventListener('click', () => {
+      index = (index + 1) % cards.length;
+      updateCarousel();
+    });
+  
+
+
+      </script>
+
+</body>
+</html>
